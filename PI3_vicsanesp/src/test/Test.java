@@ -42,6 +42,7 @@ public class Test {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio1.ej1It(arbolito, menor));
 		}
 
+		System.out.println("\n");
 		System.out.println("==================================Ejercicio 2==================================");
 		System.out.println("SOLUCIÓN RECURSIVA:");
 		List<BinaryTree<Integer>> ej2Arboles = Ejercicio2.lector2Arboles("ficheros/PI3E2_DatosEntrada.txt");
@@ -50,6 +51,7 @@ public class Test {
 			System.out.println("Entrada: " + ej2Arboles.get(i) + " Limite: " + ej2Limite.get(i) + " Salida: " + Ejercicio2.ej2Rec(ej2Arboles.get(i), ej2Limite.get(i)));
 		}
 		
+		System.out.println("\n");
 		System.out.println("==================================Ejercicio 3==================================");
 		System.out.println("SOLUCIÓN RECURSIVA:");
 		List<BinaryTree<Integer>> ej3 = Ejercicio2.lector2Arboles("ficheros/PI3E3_DatosEntrada.txt");
@@ -57,6 +59,7 @@ public class Test {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Collections.max(Ejercicio3.ej3Rec(arbolito).keySet()));
 		}
 		
+		System.out.println("\n");
 		System.out.println("==================================Ejercicio 4==================================");
 		System.out.println("SOLUCIÓN RECURSIVA:");
 		List<Tree<String>> ej4 = Ejercicio4.lector4("ficheros/PI3E4_DatosEntrada.txt");
@@ -64,11 +67,18 @@ public class Test {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio4.ej4Rec(arbolito));
 		}
 		
+		System.out.println("\n");
 		System.out.println("==================================Ejercicio 5==================================");
 		System.out.println("SOLUCIÓN RECURSIVA:");
 		List<BinaryTree<Integer>> ej5 = Ejercicio2.lector2Arboles("ficheros/PI3E5_DatosEntrada.txt");
 		for(BinaryTree<Integer> arbolito:ej5) {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio5.ej5Rec(arbolito));
+		}
+		
+		System.out.println("\n");
+		System.out.println("SOLUCIÓN ITERATIVA:");
+		for(BinaryTree<Integer> arbolito:ej5) {
+			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio5.ej5It(arbolito));
 		}
 		
 	}
