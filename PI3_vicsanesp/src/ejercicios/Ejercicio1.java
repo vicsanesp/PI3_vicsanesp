@@ -29,9 +29,9 @@ public class Ejercicio1 {
 			return res;
 			
 		case Nary:
-			if(p.test(arbolaso.getLabel())) {
-				res.add(arbolaso.getLabel());
-			}
+//			if(p.test(arbolaso.getLabel())) {
+//				res.add(arbolaso.getLabel());
+//			}
 			for (Tree<E> arbolito:arbolaso.getChildren()) {
 				ej1Rec(arbolito, p, res);
 			}
