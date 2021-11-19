@@ -1,6 +1,7 @@
 package ejercicios;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -39,6 +40,20 @@ public class Ejercicio1 {
 		return res;
 	}
 	
+	public static <E> Set<E> ej1It(Tree<E> arbolaso, Predicate<E> p){
+		Set<E> res = Set2.empty();
+		Iterator<Tree<E>> it = arbolaso.iterator();
+		while(it.hasNext()) {
+			Tree<E> arbolito = it.next();
+			if(arbolito.isLeaf()) {
+				E aux = arbolito.getLabel();
+				if(p.test(aux)) {
+					res.add(aux);
+				}
+			}
+		}
+		return res;
+	}
 	
 	public static List<Tree<Integer>> lector1(String fichero){
 		List<String> lineas = Files2.linesFromFile(fichero);
