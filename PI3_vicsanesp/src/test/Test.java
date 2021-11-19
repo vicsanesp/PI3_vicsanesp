@@ -7,6 +7,8 @@ import java.util.function.Predicate;
 import ejercicios.Ejercicio1;
 import ejercicios.Ejercicio2;
 import ejercicios.Ejercicio3;
+import ejercicios.Ejercicio4;
+import ejercicios.Ejercicio5;
 import us.lsi.tiposrecursivos.BinaryTree;
 import us.lsi.tiposrecursivos.Tree;
 
@@ -18,30 +20,30 @@ public class Test {
 		List<Tree<Integer>> ej1 = Ejercicio1.lector1("ficheros/PI3E1_DatosEntrada.txt");
 		Predicate<Integer> par = x->x%2==0;
 		Predicate<Integer> menor = x->x<5;
-		System.out.println("SOLUCIÓN RECURSIVA-PAR:");
+		System.out.println("SOLUCIÃ“N RECURSIVA-PAR:");
 		for (Tree<Integer> arbolito:ej1) {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio1.ej1Rec(arbolito, par));
 		}
 		System.out.println("\n");
-		System.out.println("SOLUCIÓN RECURSIVA-MENOR_QUE_CINCO:");
+		System.out.println("SOLUCIÃ“N RECURSIVA-MENOR_QUE_CINCO:");
 		for (Tree<Integer> arbolito:ej1) {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio1.ej1Rec(arbolito, menor));
 		}
 		
 		System.out.println("\n");
-		System.out.println("SOLUCIÓN ITERATIVA-PAR:");
+		System.out.println("SOLUCIÃ“N ITERATIVA-PAR:");
 		for (Tree<Integer> arbolito:ej1) {
-			System.out.println("Entrada: " + arbolito + " Salida: ");
+			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio1.ej1It(arbolito, par));
 		}
 		
 		System.out.println("\n");
-		System.out.println("SOLUCIÓN ITERATIVA-MENOR_QUE_CINCO:");
+		System.out.println("SOLUCIÃ“N ITERATIVA-MENOR_QUE_CINCO:");
 		for (Tree<Integer> arbolito:ej1) {
-			System.out.println("Entrada: " + arbolito + " Salida: ");
+			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio1.ej1It(arbolito, menor));
 		}
 
 		System.out.println("==================================Ejercicio 2==================================");
-		System.out.println("SOLUCIÓN RECURSIVA:");
+		System.out.println("SOLUCIÃ“N RECURSIVA:");
 		List<BinaryTree<Integer>> ej2Arboles = Ejercicio2.lector2Arboles("ficheros/PI3E2_DatosEntrada.txt");
 		List<Integer> ej2Limite = Ejercicio2.lector2Limite("ficheros/PI3E2_DatosEntrada.txt");
 		for (int i = 0; i < ej2Arboles.size(); i++) {
@@ -49,11 +51,26 @@ public class Test {
 		}
 		
 		System.out.println("==================================Ejercicio 3==================================");
-		System.out.println("SOLUCIÓN RECURSIVA:");
+		System.out.println("SOLUCIÃ“N RECURSIVA:");
 		List<BinaryTree<Integer>> ej3 = Ejercicio2.lector2Arboles("ficheros/PI3E3_DatosEntrada.txt");
 		for(BinaryTree<Integer> arbolito:ej3) {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Collections.max(Ejercicio3.ej3Rec(arbolito).keySet()));
 		}
+		
+		System.out.println("==================================Ejercicio 4==================================");
+		System.out.println("SOLUCIÃ“N RECURSIVA:");
+		List<Tree<String>> ej4 = Ejercicio4.lector4("ficheros/PI3E4_DatosEntrada.txt");
+		for(Tree<String> arbolito:ej4) {
+			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio4.ej4Rec(arbolito));
+		}
+		
+		System.out.println("==================================Ejercicio 5==================================");
+		System.out.println("SOLUCIÃ“N RECURSIVA:");
+		List<BinaryTree<Integer>> ej5 = Ejercicio2.lector2Arboles("ficheros/PI3E5_DatosEntrada.txt");
+		for(BinaryTree<Integer> arbolito:ej5) {
+			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio5.ej5Rec(arbolito));
+		}
+		
 	}
 
 }
