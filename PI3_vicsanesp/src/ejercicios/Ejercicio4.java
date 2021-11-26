@@ -10,11 +10,11 @@ import us.lsi.tiposrecursivos.Tree;
 
 public class Ejercicio4 {
 
-	public static Set<String> ej4Rec(Tree<String> arbolaso){
+	public static Set<String> ej4Rec(Tree<Character> arbolaso){
 		return ej4Rec(arbolaso, Set2.empty(), "");
 	}
 	
-	public static Set<String> ej4Rec(Tree<String> arbolaso, Set<String> res, String palabra){
+	public static Set<String> ej4Rec(Tree<Character> arbolaso, Set<String> res, String palabra){
 		switch(arbolaso.getType()) {
 		case Empty:
 			if(esPalindromo(palabra)==true) {
@@ -34,18 +34,18 @@ public class Ejercicio4 {
 		
 		case Nary:
 			palabra += arbolaso.getLabel();
-			for (Tree<String> arbolito:arbolaso.getChildren()) {
+			for (Tree<Character> arbolito:arbolaso.getChildren()) {
 				ej4Rec(arbolito, res, palabra);
 			}
 		}
 		return res;
 	}
 	
-	public static List<Tree<String>> lector4(String ruta){
-		List<Tree<String>> res = new ArrayList<>();
+	public static List<Tree<Character>> lector4(String ruta){
+		List<Tree<Character>> res = new ArrayList<>();
 		List<String> lineas = Files2.linesFromFile(ruta);
 		for (String l:lineas) {
-			Tree<String> arbolito = Tree.parse(l);
+			Tree<Character> arbolito = Tree.parse(l, x->x.charAt(0));
 			res.add(arbolito);
 		}
 		return res;

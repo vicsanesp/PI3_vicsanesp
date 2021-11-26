@@ -1,6 +1,5 @@
 package test;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -56,14 +55,14 @@ public class Test {
 		System.out.println("SOLUCIÓN RECURSIVA:");
 		List<BinaryTree<Integer>> ej3 = Ejercicio2.lector2Arboles("ficheros/PI3E3_DatosEntrada.txt");
 		for(BinaryTree<Integer> arbolito:ej3) {
-			System.out.println("Entrada: " + arbolito + " Salida: " + Collections.max(Ejercicio3.ej3Rec(arbolito).keySet()));
+			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio3.ej3Rec(arbolito) + ", " + Ejercicio3.productoLista(Ejercicio3.ej3Rec(arbolito)));
 		}
 		
 		System.out.println("\n");
 		System.out.println("==================================Ejercicio 4==================================");
 		System.out.println("SOLUCIÓN RECURSIVA:");
-		List<Tree<String>> ej4 = Ejercicio4.lector4("ficheros/PI3E4_DatosEntrada.txt");
-		for(Tree<String> arbolito:ej4) {
+		List<Tree<Character>> ej4 = Ejercicio4.lector4("ficheros/PI3E4_DatosEntrada.txt");
+		for(Tree<Character> arbolito:ej4) {
 			System.out.println("Entrada: " + arbolito + " Salida: " + Ejercicio4.ej4Rec(arbolito));
 		}
 		

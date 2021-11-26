@@ -1,48 +1,48 @@
 package ejercicios;
 
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import us.lsi.common.List2;
-import us.lsi.common.Map2;
 import us.lsi.tiposrecursivos.BinaryTree;
 
 public class Ejercicio3 {
 	
-	public static Map<Integer, List<Integer>> ej3Rec(BinaryTree<Integer> arbolaso){
-		return ej3Rec(arbolaso, List2.empty(), Map2.empty(), 0, arbolaso.getLabel());
+	public static List<Integer> ej3Rec(BinaryTree<Integer> arbolaso){
+		return ej3Rec(arbolaso, List2.empty(), List2.empty());
 	}
 	
-	public static Map<Integer, List<Integer>> ej3Rec(BinaryTree<Integer> arbolaso, List<Integer> camino, Map<Integer, List<Integer>> mem, Integer cum, Integer initCum){
+	public static List<Integer> ej3Rec(BinaryTree<Integer> arbolaso, List<Integer> cum, List<Integer> res){
 		switch(arbolaso.getType()) {
 		case Empty:
-			mem.put(cum, camino);
-			cum = initCum;
-			camino = List2.empty();
-			break;
+			return res;
 			
 		case Leaf:
-			camino.add(arbolaso.getLabel());
-			cum = cum * arbolaso.getLabel();
-			mem.put(cum, camino);
-			camino = List2.empty();
-			cum = initCum;
-			break;
+			cum.add(arbolaso.getLabel());
+			Integer productoRes = productoLista(res);
+			Integer productoCum = productoLista(cum);
+			if(productoRes<productoCum) {
+				res = cum;
+			}
+			return res;
+			
 		
 		case Binary:
-			if(cum == 0) {
-				ej3Rec(arbolaso.getLeft(), camino, mem, arbolaso.getLabel(), initCum);
-				camino = List2.empty();
-				ej3Rec(arbolaso.getRight(), camino, mem, arbolaso.getLabel(), initCum);
-			}
-			cum = cum * arbolaso.getLabel();
-			camino.add(arbolaso.getLabel());
-			ej3Rec(arbolaso.getLeft(), camino, mem, cum, initCum);
-			camino = List2.empty();
-			ej3Rec(arbolaso.getRight(), camino, mem, cum, initCum);
-			
+			cum.add(arbolaso.getLabel());
+			res = ej3Rec(arbolaso.getLeft(), new ArrayList<Integer>(cum), res);
+			res = ej3Rec(arbolaso.getRight(), new ArrayList<Integer>(cum), res);
 		}
-		return mem;
+		return res;
+	}
+	
+	
+	public static Integer productoLista(List<Integer> lista) {
+		return lista.stream().mapToInt(x->x).reduce(1, Math::multiplyExact);
+	}
+	
+	public static <E>List<E> listaAnyadido(List<E> lista, E anyade){
+		lista.add(anyade);
+		return lista;
 	}
 }
